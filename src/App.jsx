@@ -1,28 +1,34 @@
-import { useState } from 'react'
+import { useState } from 'react';
+import CulturalNavigation from './components/CulturalNavigation';
+import HomePage from './components/HomePage';
+import HeritageCodex from './components/HeritageCodex';
+import ArtGallery from './components/ArtGallery';
 
-function App() {
-  const [count, setCount] = useState(0)
+const routes = [
+  { path: '/', label: 'Home' },
+  { path: '/heritage-sites', label: 'Sacred Sites' },
+  { path: '/art-gallery', label: 'Art Gallery' },
+];
+
+export default function App() {
+  const [activePath, setActivePath] = useState('/')
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
-      </div>
-    </div>
-  )
-}
+    <div className="min-h-screen bg-neutral-100 text-neutral-900 antialiased">
+      <CulturalNavigation activePath={activePath} onNavigate={setActivePath} routes={routes} />
 
-export default App
+      <main className="relative pt-20">
+        {activePath === '/' && <HomePage />}
+        {activePath === '/heritage-sites' && <HeritageCodex />}
+        {activePath === '/art-gallery' && <ArtGallery />}
+      </main>
+
+      <footer className="border-t border-neutral-200 mt-10">
+        <div className="max-w-6xl mx-auto px-4 py-6 text-sm text-neutral-600 flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+          <p>© {new Date().getFullYear()} Aboriginal Heritage — Crafted with cultural respect.</p>
+          <p className="opacity-80">Accessibility first • Performance focused • Community guided</p>
+        </div>
+      </footer>
+    </div>
+  );
+}
