@@ -11,7 +11,7 @@ const routes = [
 ];
 
 export default function App() {
-  const [activePath, setActivePath] = useState('/')
+  const [activePath, setActivePath] = useState('/');
 
   return (
     <div className="min-h-screen bg-neutral-100 text-neutral-900 antialiased">

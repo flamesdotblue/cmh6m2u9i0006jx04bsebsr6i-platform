@@ -23,7 +23,7 @@ const sampleArtworks = [
 ];
 
 export default function ArtGallery() {
-  const [viewMode, setViewMode] = useState('gallery'); // gallery | immersive
+  const [viewMode, setViewMode] = useState('gallery');
   const [activeArtwork, setActiveArtwork] = useState(null);
 
   const enter = (art) => {

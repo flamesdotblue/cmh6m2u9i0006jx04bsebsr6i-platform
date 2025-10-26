@@ -2,12 +2,11 @@ import { useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 function getAustralianSeason(date = new Date()) {
-  const month = date.getMonth(); // 0-11
-  // Meteorological seasons for Australia (Southern Hemisphere)
-  if (month === 11 || month <= 1) return 'summer'; // Dec-Feb
-  if (month >= 2 && month <= 4) return 'autumn'; // Mar-May
-  if (month >= 5 && month <= 7) return 'winter'; // Jun-Aug
-  return 'spring'; // Sep-Nov
+  const month = date.getMonth();
+  if (month === 11 || month <= 1) return 'summer';
+  if (month >= 2 && month <= 4) return 'autumn';
+  if (month >= 5 && month <= 7) return 'winter';
+  return 'spring';
 }
 
 const seasonalTokens = {

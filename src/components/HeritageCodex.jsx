@@ -26,7 +26,7 @@ export default function HeritageCodex() {
 
       <div className="relative max-w-5xl mx-auto px-4 py-16">
         <div className="rounded-2xl shadow-2xl border border-amber-200/70 overflow-hidden" style={{
-          background: "linear-gradient(180deg, #fffaf0, #fff6e5)",
+          background: 'linear-gradient(180deg, #fffaf0, #fff6e5)',
           boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.5), inset 0 -1px 0 rgba(0,0,0,0.04)'
         }}>
           <div className="relative p-6 md:p-10">
